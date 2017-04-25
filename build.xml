@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<project name="hosting4" default="war.hosting" basedir="./src/main/webapp/">
+
+  
+	<!-- App name-dependent settings. -->
+	<property name="build.src" location="../java/"/>
+	<property name="build.classes" location="./WEB-INF/classes"/>
+	<property name="build.dir" location="./WEB-INF/"/>
+	<property name="classes.path" location="${build.dir}/lib"/>
+	<property name="appname" value="mincraft"/>
+	<property name="tomcat.path" location="../../../../../apache-tomcat/lib/"/>
+  
+	<path id="local_lib">
+		 <fileset dir="${classes.path}" includes="*.jar"/>
+		<fileset dir="${tomcat.path}" includes="*.jar"/>
+		<pathelement location="${build.classes}/"/>
+	</path>
+
+	<!--- project build starts here -->
+	<target name="prepare">
+		<delete>
+		    <fileset dir="./" includes="*.war"/>
+		 </delete>
+	</target>
+
+	<target name="compile" depends="prepare">
+		<javac destdir="${build.classes}" debug="on" target="1.6" source="1.6" >
+			<exclude name="**/*Test*.java" />
+			<exclude name="**/test/*Test*.java" />
+			<classpath refid="local_lib" />
+			<src path="${build.src}"/>
+		</javac>
+	</target>
+	
+	<target name="war.ROOT" depends="compile" >
+		<antcall target="war">
+		    <param name="war.name" value="${appname}"/>
+		 </antcall>
+	</target>
+	
+	<target name="war.hosting" depends="compile" >
+		<antcall target="war">
+		    <param name="war.name" value="${appname}"/>
+		 </antcall>
+	</target>
+	
+	<target name="war" depends="compile" >
+		<replace file="${build.classes}/log4j.properties" token="log4j.rootCategory=INFO" value="log4j.rootCategory=ERROR"/>
+		<replace file="${build.classes}/application.properties" token="env=sandbox" value="env=prod"/>
+		<replace file="${build.dir}/web.xml" token="index.xhtml" value="index.html"/>
+		<replace file="${build.dir}/web.xml" token="sandbox" value="prod"/>
+			<war  warfile="${war.name}.war" webxml="./WEB-INF/web.xml">
+				<fileset dir="${basedir}" includes="*.css, *.xhtml, *.html, *.xml, *.ico"/>
+				<zipfileset dir="${basedir}/images"  prefix="images"/>
+				<zipfileset dir="${basedir}/js"  prefix="js"/>
+				<zipfileset dir="${basedir}/bootstrap"  prefix="bootstrap"/>
+				<zipfileset dir="${basedir}/font-awesome-4.3.0"  prefix="font-awesome-4.3.0"/>
+				<zipfileset dir="${basedir}/rs-plugin"  prefix="rs-plugin"/>
+				<zipfileset dir="${basedir}/fonts"  prefix="fonts"/>
+				<zipfileset dir="${basedir}/css"  prefix="css"/>
+				<zipfileset dir="${basedir}/WEB-INF" prefix="WEB-INF" excludes="web.xml"/>
+			</war>
+		
+		<replace file="${build.classes}/log4j.properties" token="log4j.rootCategory=ERROR" value="log4j.rootCategory=INFO"/>
+		<replace file="${build.dir}/web.xml" token="index.html" value="index.xhtml"/>
+		<replace file="${build.classes}/application.properties" token="env=prod" value="env=sandbox"/>
+	</target>
+	
+	<target name="create.sitemap"  >
+		<java classname="com.hosting.misc.GoogleSiteMapGenerator" fork="yes" >
+		<classpath refid="local_lib" />
+    	<sysproperty key="DEBUG" value="true"/>
+    	<arg value="http://www.tomcathostingservice.com/"/>
+	<arg value="./WEB-INF/jsp"/>
+	<arg value="./sitemap.xml"/>
+	<arg value="checkout,cart,customize,logout,error,admin,template,500,404,generic,customer,profile,account"/>
+	<arg value="~"/>
+	<arg value="_body"/>
+  		</java>
+	</target>
+	
+	<target name="generate.html">
+		<java classname="com.tomcat.hosting.utils.HtmlGenerator" fork="yes" >
+			<classpath refid="local_lib" />
+	    	<arg value="./WEB-INF/template/" />
+	    	<arg value="http://127.0.0.1:9080/minecraft"/>
+	    	<arg value="./"/>
+			<arg value=".xhtml"/>
+	  	</java>
+	</target>
+	
+	<target name="deploy.to.prod">
+		<input message="Please enter ssh username:" addproperty="scp.user" defaultvalue="paul"/>
+		<input message="Please enter ssh password:" addproperty="scp.password"/>
+		<input message="Please last three digit of the ip address:(200)" addproperty="scp.ip" defaultvalue="200"/>
+		<input message="Please enter SSH port" addproperty="scp.port" defaultvalue="22"/>
+		<!--<antcall target="generate.html" /> -->
+		<antcall target="war.ROOT" />
+		<scp sftp="true" file="${basedir}/${appname}.war" port="${scp.port}" todir="${scp.user}:${scp.password}@192.168.1.${scp.ip}:/home/tomcat/apache-tomcat/webapps/" trust="true"/>
+	</target>
+	
+	<target name="send.WAR.prod">
+			<input message="Please enter ssh username:" addproperty="scp.user"/>
+			<input message="Please enter ssh password:" addproperty="scp.password"/>
+			<input message="Please last three digit of the ip address:(200)" addproperty="scp.ip"/>
+			<input message="Please enter SSH port" addproperty="scp.port" defaultvalue="22"/>
+			<scp sftp="true" file="${basedir}/${appname}.war" port="${scp.port}" todir="${scp.user}:${scp.password}@192.168.1.${scp.ip}:/home/tomcat/apache-tomcat/webapps/" trust="true"/>
+		</target>
+
+</project>
+
+

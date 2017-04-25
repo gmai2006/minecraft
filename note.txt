@@ -1,0 +1,2 @@
+#xauth user guide
+https://luricos.de/wiki/display/xAuth/Configuration

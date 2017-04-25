@@ -1,0 +1,19 @@
+
+Client ID
+    48610
+    This is the ID of your API application. 
+
+Client Secret 115d30ddce
+    Show Client Secret This is a secret value for your API application 
+
+Access Token
+    STAGE_ee2c7dbc06705b03a62ca930a604e9f3b38c7eda32fb3c8a3675bc2a848ef0bc
+    Regenerate This is the access_token that grants this app permission to do things on behalf of mike nguyen (support@tomcathostingservice.com). 
+
+Account ID
+    252681242
+    This is the ID of the payment account where you can collect money. 
+
+OAuth2 URL
+    https://stage.wepay.com/v2/oauth2/authorize?client_id=48610&redirect_uri=http://tomcathostingservice.com/&scope=manage_accounts,collect_payments,view_user,send_money,preapprove_payments,manage_subscriptions
+    This is an example URL for the 1st step of the OAuth2 flow. 

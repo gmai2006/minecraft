@@ -1,0 +1,62 @@
+support@tomcathostingservice.com
+best friend: phong
+first pet: milu
+first car: honda
+seattle2006
+
+buyer test account
+buyer_1288043262_per@tomcathostingservice.com
+tomcathostingservice
+
+seller test account
+seller_1288043206_biz@tomcathostingservice.com
+tomcathostingservice
+
+https://cms.paypal.com/us/cgi-bin/?&cmd=_render-content&content_ID=developer/e_howto_html_IPNandPDTVariables#id08CTB0S055Z
+
+Important values that categorizes payments
+txn_type, payment_status, and reason_code
+IPN values
+2010-08-12 00:44:06,164 [http-8080-1] INFO  ApplicationUtil - IPN: last_name,hosting
+2010-08-12 00:44:06,164 [http-8080-1] INFO  ApplicationUtil - IPN: item_name1,Basic Plan -128 MB JVM - Monthly Subscription
+2010-08-12 00:44:06,164 [http-8080-1] INFO  ApplicationUtil - IPN: test_ipn,1
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: address_name,tomcat hosting
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: txn_type,cart
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: mc_handling1,0.00
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: receiver_email,gmai2006@gmail.com
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: residence_country,US
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: address_city,hoston
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: payment_gross,6.90
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: payment_date,00:44:05 Aug 12, 2010 PDT
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: address_zip,75000
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: payment_status,Pending
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: quantity1,1
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: address_street,1234 test drive
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: mc_shipping,0.00
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: first_name,tomcat
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: payer_email,support@tomcathostingservice.com
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: protection_eligibility,Ineligible
+2010-08-12 00:44:06,165 [http-8080-1] INFO  ApplicationUtil - IPN: payer_id,C6Z2HZ7CTY8RC
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: verify_sign,ATAhU.OQpXiRmjPHPaHAoNUao7uKAehk5P0Csx5HoEvnhMl5WQ5.NgGa
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: payment_type,echeck
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: business,gmai2006@gmail.com
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: address_country_code,US
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: mc_gross_1,6.90
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: address_status,confirmed
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: transaction_subject,PAYPAL
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: cart_id,6C53811A6EA473B1A98D927267613CAD
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: notify_version,3.0
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: mc_currency,USD
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: mc_shipping1,0.00
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: custom,PAYPAL
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: address_state,TN
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: payer_status,verified
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: mc_handling,0.00
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: tax,0.00
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: charset,windows-1252
+2010-08-12 00:44:06,166 [http-8080-1] INFO  ApplicationUtil - IPN: pending_reason,unilateral
+2010-08-12 00:44:06,167 [http-8080-1] INFO  ApplicationUtil - IPN: item_number1,23
+2010-08-12 00:44:06,167 [http-8080-1] INFO  ApplicationUtil - IPN: mc_gross,6.90
+2010-08-12 00:44:06,167 [http-8080-1] INFO  ApplicationUtil - IPN: txn_id,36G10735UG696900W
+2010-08-12 00:44:06,167 [http-8080-1] INFO  ApplicationUtil - IPN: address_country,United States
+2010-08-12 00:44:06,167 [http-8080-1] INFO  ApplicationUtil - IPN: num_cart_items,1

@@ -1,0 +1,1 @@
+<li$account$><a href="account/my-account-info.xhtml">My Account</a></li>

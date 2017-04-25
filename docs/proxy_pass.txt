@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+ServerAdmin admin@tomcathostingservice.com
+ProxyPass / http://localhost:8080/
+ProxyPassReverse / http://localhost:8080/
+
+<Location / >
+    Order allow,deny
+    Allow from all
+</Location>
+
+<Proxy *>
+     AddDefaultCharset Off
+     Order deny,allow
+     Allow from all
+   </Proxy>
+</VirtualHost>
+
